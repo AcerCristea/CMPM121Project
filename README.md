@@ -1,13 +1,13 @@
 # Devlog Entry - 11/21/24
 
 ## Introducing the team
-Keaton: Tools Lead
+Keaton: Tools Lead - Research alternative tools, identify good ones, and help every other team member set them up
 
 Zoe: Assistant Tools and Design
 
-Cal: Engine Lead
+Cal: Engine Lead - Research alternative engines, get buy-in from teammates on the choice, and teach peers how to use it
 
-Jake: Design Lead
+Jake: Design Lead - Responsible for setting the creative direction of the project, and establishing the look and feel of the game
 
 Acer: Assistant Engine and Design
 <br /><br />
