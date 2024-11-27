@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stick Run</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid-Based Farming Game</title>
 </head>
 <body>
-    <script src="./lib/phaser.js"></script>
-    <script src="./src/scenes/Play.js"></script>
-    <script src="./src/scenes/Credits.js"></script>
-    <script src="./src/scenes/Menu.js"></script>
-    <script src="./src/main.js"></script>
-    <script src="./src/objects/Platform.js"></script>
+    <!-- Existing app container -->
+    <div id="app">
+        <!-- Add the canvas and button elements inside the app container -->
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <button id="nextTurnButton">Next Turn</button>
+    </div>
+    <!-- Import your main.ts script -->
+    <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
