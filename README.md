@@ -1,13 +1,13 @@
 # Devlog Entry - 11/21/24
 
 ## Introducing the team
-Keaton: Tools Lead
+Keaton: Tools Lead - Research alternative tools, identify good ones, and help every other team member set them up
 
 Zoe: Assistant Tools and Design
 
-Cal: Engine Lead
+Cal: Engine Lead - Research alternative engines, get buy-in from teammates on the choice, and teach peers how to use it
 
-Jake: Design Lead
+Jake: Design Lead - Responsible for setting the creative direction of the project, and establishing the look and feel of the game
 
 Acer: Assistant Engine and Design
 <br /><br />
@@ -16,16 +16,16 @@ Acer: Assistant Engine and Design
 ## Tools and materials
 
 ### Engines, libraries, frameworks, and platforms used and why
-We are using Unity 2d because a few on the team already have experience. Others wanted to learn something new and get comfortable with a game engine. We didn't want to use Phaser because we thought it would limit the functionality and potential of the game. There are also a lot of online resources and documentation for Unity to guide our learning and further assist with the development process.
+We chose TypeScript combined with HTML5 as the backbone of our project because of its alignment with our team's prior experience from previous demos. We didn't want to use Phaser because we thought it would limit the functionality and potential of the game, and we were unsure how it would work with TypeScript. There are also a lot of online resources and documentation for TypeScript to guide our learning and further assist with the development process.
 
 ### Programming Languages used and why
-For our project using Unity, we are required to use C#, as it is the primary programming language supported by the Unity engine. This will be ideal for implementing specific game mechanics for our project while adhering to software requirements. Additionally, we plan to use JSON files for data storage and exchange.
+TypeScript serves as our primary programming language, complementing its powerful features with CSS and HTML for styling and structure. This will be ideal for implementing specific game mechanics for our project while adhering to software requirements.
 
 ### Other tools (IDE, image editor, 3D editor) used and why
-Possible tools that we will use are Piskel and Pixilart for designing assets that support multiple resolutions, and animations, and can be saved on a spritesheet. Due to our use of Unity, the Unity Asset Store is always available to download free or paid assets. To code we will mostly be using Visual Studio Code.
+Possible tools that we will use are Piskel and Pixilart for designing assets that support multiple resolutions, and animations, and can be saved on a spritesheet. Since we intend to source some assets online, TypeScript's integration with external resources ensures we can incorporate these elements seamlessly. To code we will mostly be using Visual Studio Code.
 
 ### Alternate platform choice
-Our alternate platform choice would be Godot, changing our primary language to GDScript, but we would only want to use this if we struggle creating our original concept in Unity.
+In the event that our current setup does not meet our needs, we have identified TypeScript combined with Three.js as a strong alternate platform choice. Three.js offers extensive functionality for 3D rendering and advanced visual effects. While it might increase the complexity of development, its compatibility with TypeScript ensures that the transition would not require a complete overhaul of our existing codebase or skill set.
 <br /><br />
 
 ## Outlook
