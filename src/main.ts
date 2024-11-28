@@ -131,7 +131,7 @@ window.onload = () => {
         this.grid.push(column);
       }
       this.player = new Player();
-      this.turn = 0;
+      this.turn = -1;
       this.actionMode = 'none';
       this.victoryConditionMet = false;
       this.fullyGrownPlantsReaped = 0; // Initialize counter
@@ -142,6 +142,8 @@ window.onload = () => {
 
       // Start the game loop
       this.gameLoop();
+
+      this.nextTurn();
     }
 
     handleKeyDown(event: KeyboardEvent) {
