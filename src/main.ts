@@ -78,7 +78,8 @@ window.onload = () => {
       // Start the game loop
       this.gameLoop();
 
-      this.nextTurn();
+      // sun first time
+      // this.nextTurn();
     }
 
     initializeGameState() {
