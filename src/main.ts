@@ -77,6 +77,8 @@ window.onload = () => {
 
       // Start the game loop
       this.gameLoop();
+
+      this.nextTurn();
     }
 
     initializeGameState() {
