@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grid-Based Farming Game</title>
+  <meta charset="UTF-8" />
+  <title>Grid-Based Farming Game</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Existing app container -->
-    <div id="app">
-        <!-- Add the canvas and button elements inside the app container -->
-        <canvas id="gameCanvas" width="800" height="600"></canvas>
-        <button id="nextTurnButton">Next Turn</button>
-    </div>
-    <!-- Import your main.ts script -->
-    <script type="module" src="/src/main.ts"></script>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <div id="controls">
+    <button id="nextTurnButton">Next Turn</button>
+    <button id="saveButton">Save Game</button>
+    <button id="loadButton">Load Game</button>
+    <button id="undoButton">Undo</button>
+    <button id="redoButton">Redo</button>
+  </div>
+  <script type="module" src="src/main.ts"></script>
 </body>
 </html>
