@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import json
 import os
 import sys
@@ -215,6 +217,10 @@ class Game:
                 self.autoSaveGame()
         elif parts[0] == 'n':
             self.nextTurn()
+        elif parts[0] == 'undo':
+            self.undo()
+        elif parts[0] == 'redo':
+            self.redo()
         elif parts[0] == 'debug':
             self.debugMode = not self.debugMode
             self.draw()
@@ -578,6 +584,8 @@ def main():
     - Move: w=up, s=down, a=left, d=right
     - Sow: 'sow up', 'sow down', 'sow left', 'sow right'
     - Reap: 'reap up', 'reap down', 'reap left', 'reap right'
+    - Undo: 'undo'
+    - Redo: 'redo'
     - Next Turn: 'n'
     - Debug Mode: 'debug' toggles numeric data
     - Quit: 'q'
