@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Grid-Based Farming Game</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="gameCanvas" width="800" height="600"></canvas>
-  <div id="controls">
-    <button id="nextTurnButton">Next Turn</button>
-    <button id="saveButton">Save Game</button>
-    <button id="loadButton">Load Game</button>
-    <button id="undoButton">Undo</button>
-    <button id="redoButton">Redo</button>
+  <div id="scenarioSelection">
+    <label for="scenarioSelect">Select Scenario:</label>
+    <select id="scenarioSelect">
+      <option value="easyStart">Easy Start</option>
+      <option value="droughtChallenge">Drought Challenge</option>
+      <option value="survivalChallenge">Survival Challenge</option>
+    </select>
+    <button id="startGameButton">Start Game</button>
   </div>
+
+  <div id="bigBox">
+    <div id="canvasBox">
+      <canvas id="gameCanvas" width="800" height="600"></canvas>
+      <div id="controls">
+        <button id="nextTurnButton">Next Turn</button>
+        <button id="saveButton">Save Game</button>
+        <button id="loadButton">Load Game</button>
+        <button id="undoButton">Undo</button>
+        <button id="redoButton">Redo</button>
+      </div>
+    </div>
+
+    <p id="gameInstructions"></p>
+  </div>
+
   <script type="module" src="src/main.ts"></script>
 </body>
 </html>

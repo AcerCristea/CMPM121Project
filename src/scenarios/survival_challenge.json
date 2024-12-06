@@ -1,0 +1,48 @@
+{
+  "scenarioName": "Survival Challenge",
+  "startingConditions": {
+    "playerPosition": [10, 7],
+    "fullyGrownPlantsReaped": 0,
+    "grid": [
+      {
+        "x": 5,
+        "y": 5,
+        "plantType": "Wheat",
+        "growthLevel": 2
+      },
+      {
+        "x": 6,
+        "y": 5,
+        "plantType": "Corn",
+        "growthLevel": 1
+      }
+    ]
+  },
+  "weatherPolicy": {
+    "sunChance": 0.6,
+    "rainChance": 0.4,
+    "events": [
+      {
+        "turn": 5,
+        "type": "Drought",
+        "duration": 3
+      },
+      {
+        "turn": 10,
+        "type": "Rainstorm",
+        "effect": "increase_moisture"
+      }
+    ]
+  },
+  "victoryCondition": {
+    "type": "reap_plants",
+    "target": 5
+  },
+  "scheduledEvents": [
+    {
+      "turn": 8,
+      "action": "unlock_plant_type",
+      "plantType": "Rice"
+    }
+  ]
+}

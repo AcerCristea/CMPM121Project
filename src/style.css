@@ -10,12 +10,12 @@ body {
   background-color: #f0f0f0;
 }
 
-#controls {
-  margin-top: 10px;
+#controls, #scenarioSelection {
+  margin: 10px;
 }
 
-#controls button {
-  margin: 5px;
+#controls button, #scenarioSelection button, #scenarioSelection select {
+  margin-right: 10px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
