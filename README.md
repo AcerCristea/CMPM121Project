@@ -63,3 +63,45 @@ The victory condition is when the player reaps at least 3 fully grown plants. Th
 
 ## Reflection
 We originally thought that we were going to use the Unity game engine to complete this assingment, but because most of the team members didn't know how to use Unity, we decided to use Phaser and typescript. We were struggling to get our Phaser project started, so we just decided to use HTML 5 and typescript instead and stick to the theme of the class. Everyone was more comfortable creating our final project with a language and resources we were learning in class. 
+
+
+# Devlog Entry - 12/4/24
+
+## How we satisfied the software requirements
+### F0.a 2D controller
+Same as last week.
+
+### F0.b Turn-based simulation
+Same as last week.
+
+### F0.c reap or sow plants
+Same as last week.
+
+### F0.d Sun and water levels in cells
+Same as last week.
+
+### F0.e Plant has distinct type and growth level
+Same as last week.
+
+### F0.f Spatial rules for plant growth
+Same as last week.
+ 
+### F0.g
+Same as last week.
+
+### F1.a Backing game in a single contiguous byte array
+The game state for the grid is stored in a single byte array called gameState. This array uses an Array of Structures (AoS) format where each grid cell's data is grouped together and stored. All grid operations (e.g., plant growth, resource updates, player interactions) are performed directly on this byte array. Any additional representations (like visual grids) are decoded from this array as needed, ensuring the byte array remains the primary format. ![image](https://github.com/user-attachments/assets/e7bffa6a-dd47-4cde-a2db-7c8095a59525)
+
+
+### F1.b Manually save game progress
+A system for saving game progress in multiple slots is implemented using localStorage. Each save slot stores thhe gameState byte array, game state data (e.g., player position, turn number, reaped plants), and the name of the scenario used.
+
+### F1.c Auto-saving
+The game automatically saves progress to a dedicated "auto-save" entry in local storage after each turn. The auto-save entry is different from manual saves but can be loaded if it is found in local storage when the game starts up.
+ 
+### F1.d Undo/Redo major choices
+The game's state history is maintained using a stack. When a saved game is loaded, the undo stack is re-made, including all previous states up to the point of the save. This makes sure players can undo all the way to the start of the session, even if they continue from a saved game.
+
+## Reflection
+We ended up having to do quite a bit of research to complete some of the specified requirements. All of us have experience with Phaser and TypeScript, but in order to complete the tasks we had to venture out of our comfort zones. We had some trouble with the byte arrays, but we were eventually able to work through it. We really liked some of the features we implemented for player feedback, such as letting the player choose the direction they want to plant their seeds or the way we handle player saves. It has given us much more creative freedom to make our game more interesting. We haven't changed any tools or materials since we initially started our project. In terms of development roles, we have all been working together and tackling the same tasks, straying outside of our original assigned roles. 
+
