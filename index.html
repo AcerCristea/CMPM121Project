@@ -1,36 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Grid-Based Farming Game</title>
+  <meta charset="UTF-8" />
+  <title>Farming Game</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Link your external CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="scenarioSelection">
-    <label for="scenarioSelect">Select Scenario:</label>
-    <select id="scenarioSelect">
-      <option value="easyStart">Easy Start</option>
-      <option value="droughtChallenge">Drought Challenge</option>
-      <option value="survivalChallenge">Survival Challenge</option>
-    </select>
-    <button id="startGameButton">Start Game</button>
-  </div>
+<h1>Farming Game</h1>
 
-  <div id="bigBox">
-    <div id="canvasBox">
-      <canvas id="gameCanvas" width="800" height="600"></canvas>
-      <div id="controls">
-        <button id="nextTurnButton">Next Turn</button>
-        <button id="saveButton">Save Game</button>
-        <button id="loadButton">Load Game</button>
-        <button id="undoButton">Undo</button>
-        <button id="redoButton">Redo</button>
-      </div>
-    </div>
+<div id="scenarioSelection">
+  <label for="scenarioSelect">Select Scenario:</label>
+  <select id="scenarioSelect">
+    <option value="easy_start">Easy Start</option>
+    <option value="drought_challenge">Drought Challenge</option>
+    <option value="survival_challenge">Survival Challenge</option>
+  </select>
+  <button id="startGameButton">Start Game</button>
+</div>
 
-    <p id="gameInstructions"></p>
-  </div>
+<p>
+Game Modes:<br>
+- Easy Start: stable, Reap 3 plants = Victory.<br>
+- Drought Challenge: Drought events, Reap 5 plants.<br>
+- Survival Challenge: Multiple events, Reap 5 plants.
+</p>
 
-  <script type="module" src="src/main.ts"></script>
+<p>
+Controls:<br>
+- Movement: w=up, s=down, a=left, d=right<br>
+- Sow: "sow up/down/left/right"<br>
+- Reap: "reap up/down/left/right"<br>
+- Next Turn: 'n'<br>
+- Undo: 'undo'<br>
+- Redo: 'redo'<br>
+- Debug: 'debug'<br>
+- Save: 'save'<br>
+- Load: 'load'<br>
+- Quit: 'q' (no effect in browser)
+</p>
+
+<div id="controls">
+  <button onclick="handleCommand('w')">W</button>
+  <button onclick="handleCommand('s')">S</button>
+  <button onclick="handleCommand('a')">A</button>
+  <button onclick="handleCommand('d')">D</button>
+
+  <button onclick="handleCommand('sow up')">Sow Up</button>
+  <button onclick="handleCommand('sow down')">Sow Down</button>
+  <button onclick="handleCommand('sow left')">Sow Left</button>
+  <button onclick="handleCommand('sow right')">Sow Right</button>
+
+  <button onclick="handleCommand('reap up')">Reap Up</button>
+  <button onclick="handleCommand('reap down')">Reap Down</button>
+  <button onclick="handleCommand('reap left')">Reap Left</button>
+  <button onclick="handleCommand('reap right')">Reap Right</button>
+
+  <button onclick="handleCommand('n')">Next Turn</button>
+  <button onclick="handleCommand('undo')">Undo</button>
+  <button onclick="handleCommand('redo')">Redo</button>
+  <button onclick="handleCommand('debug')">Debug</button>
+  <button onclick="handleCommand('save')">Save</button>
+  <button onclick="handleCommand('load')">Load</button>
+</div>
+
+<select id="languageSelect">
+  <option value="en">English</option>
+  <option value="es">Español</option>
+  <option value="zh">中文</option>
+  <option value="ar">العربية</option>
+</select>
+
+<div id="info"></div>
+<pre class="grid" id="gridDisplay"></pre>
+
+<script src="game.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', ()=>{
+      navigator.serviceWorker.register('sw.js').then(registration=>{
+        console.log('Service Worker registered with scope:', registration.scope);
+      }, err=>{
+        console.error('Service Worker registration failed:', err);
+      });
+    });
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    changeLanguage();
+    applyTranslations(); 
+  });
+</script>
 </body>
 </html>

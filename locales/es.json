@@ -1,0 +1,14 @@
+{
+  "up": "Arriba",
+  "down": "Abajo",
+  "left": "Izquierda",
+  "right": "Derecha",
+  "sow": "Sembrar",
+  "reap": "Cosechar",
+  "next turn": "Próximo turno",
+  "undo": "Deshacer",
+  "redo": "Rehacer",
+  "debug": "Depurar",
+  "save": "Guardar",
+  "load": "Cargar"
+}

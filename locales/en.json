@@ -1,0 +1,14 @@
+{
+  "up": "Up",
+  "down": "Down",
+  "left": "Left",
+  "right": "Right",
+  "sow": "Sow",
+  "reap": "Reap",
+  "next turn": "Next Turn",
+  "undo": "Undo",
+  "redo": "Redo",
+  "debug": "Debug",
+  "save": "Save",
+  "load": "Load"
+}

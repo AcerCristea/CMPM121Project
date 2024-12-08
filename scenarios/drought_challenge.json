@@ -1,0 +1,24 @@
+{
+  "scenarioName": "Drought Challenge",
+  "startingConditions": {
+    "playerPosition": [10, 10],
+    "fullyGrownPlantsReaped": 0,
+    "grid": []
+  },
+  "weatherPolicy": {
+    "sunChance": 0.9,
+    "rainChance": 0.1,
+    "events": [
+      {
+        "turn": 5,
+        "type": "Drought",
+        "duration": 5
+      }
+    ]
+  },
+  "victoryCondition": {
+    "type": "reap_plants",
+    "target": 5
+  },
+  "scheduledEvents": []
+}

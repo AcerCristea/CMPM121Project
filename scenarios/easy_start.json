@@ -1,0 +1,18 @@
+{
+  "scenarioName": "Easy Start",
+  "startingConditions": {
+    "playerPosition": [5, 5],
+    "fullyGrownPlantsReaped": 0,
+    "grid": []
+  },
+  "weatherPolicy": {
+    "sunChance": 0.8,
+    "rainChance": 0.2,
+    "events": []
+  },
+  "victoryCondition": {
+    "type": "reap_plants",
+    "target": 3
+  },
+  "scheduledEvents": []
+}
