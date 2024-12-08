@@ -105,3 +105,92 @@ The game's state history is maintained using a stack. When a saved game is loade
 ## Reflection
 We ended up having to do quite a bit of research to complete some of the specified requirements. All of us have experience with Phaser and TypeScript, but in order to complete the tasks we had to venture out of our comfort zones. We had some trouble with the byte arrays, but we were eventually able to work through it. We really liked some of the features we implemented for player feedback, such as letting the player choose the direction they want to plant their seeds or the way we handle player saves. It has given us much more creative freedom to make our game more interesting. We haven't changed any tools or materials since we initially started our project. In terms of development roles, we have all been working together and tackling the same tasks, straying outside of our original assigned roles. 
 
+# Devlog Entry - 12/7/24
+
+## How we satisfied the software requirements
+### F0 + F1
+No major changes were made in terms of F0 and F1, so the F0 and F1 requirements are still met.
+
+### F2.a External DSL for Scenario Design
+For our external DSL, we based it on JSON because we felt that it was easy and readable in case we wanted to modify or add more scenarios.
+
+Below is an example of one of our scenarios:
+```json
+{
+ "scenarioName": "Drought Challenge",
+ "startingConditions": {
+   "playerPosition": [10, 10],
+   "fullyGrownPlantsReaped": 0,
+   "grid": []
+ },
+ "weatherPolicy": {
+   "sunChance": 0.9,
+   "rainChance": 0.1,
+   "events": [
+     {
+       "turn": 5,
+       "type": "Drought",
+       "duration": 5
+     }
+   ]
+ },
+ "victoryCondition": {
+   "type": "reap_plants",
+   "target": 5
+ },
+ "scheduledEvents": []
+}
+```
+
+The natural language explanation of this code is that the scenario is called “Drought Challenge” and the weather consists of rain having a decreased chance to show up and an increased chance for sun to show up. An event happens on turn 5 called “Drought” which lasts for 5 turns and decreases the rain chance even more, and increases the sun chance even more. The victory condition has also changed so the player must reap 5 fully grown plants instead of 3 by default.
+
+### F2.b Internal DSL for Plants and Growth Conditions
+Our internal DSL was written in Python and we had to change a few of our growth conditions from before since each plant had the same growth condition as before. We added 2 other growth conditions: One where a plant needs sun in order to grow, and the other one where a plant needs to be next to at least 2 other plants of any type for it to grow.
+
+Below is an example of one of our plants:
+```python
+class PlantDefinition:
+   def __init__(self, name, plant_type):
+       self.name = name
+       self.type = plant_type
+       self.growth_conditions = []
+
+
+class PlantDefinitionBuilder:
+   def __init__(self, name, plant_type):
+       self.definition = PlantDefinition(name, plant_type)
+
+
+def define_plant(name, plant_type):
+   return PlantDefinitionBuilder(name, plant_type)
+
+
+class PlantRegistry:
+   plants = {}
+
+
+   @classmethod
+   def register(cls, definition):
+       cls.plants[definition.type] = definition
+
+
+   @classmethod
+   def get_definition(cls, plant_type):
+       return cls.plants.get(plant_type, None)
+
+
+PlantRegistry.register(
+   define_plant("Wheat", PlantType.Wheat)
+   .requireMoistureAbove(10)
+   .requireAdjacentSameType(1)
+   .done()
+)
+```
+
+The natural language explanation of this is that Wheat is getting defined as a plant and registered in the PlantRegistry class. For the Wheat to grow, it requires a moisture level of at least 10 and requires another wheat to be adjacent to it.
+
+### F2.c Switch to Alternate Platform
+We transitioned our project from TypeScript to Python. We decided to stray away from our originally proposed idea of Unity and switching to Godot because we thought it would have been really hard to learn within the limited time we had. The JSON files that held our scenarios were compatible with Python, so we did not have to make any changes to our external DSL. However, we had to reimplement the event scheduling and the growth mechanics to work with Python.
+
+## Reflection
+It was a cool way to learn how external and internal DSLs worked, and see how it gave us an advantage for when we would have to switch to a different language or platform. We had some struggles initially, but after researching more about what DSLs actually were, it became easier to understand and we were able to implement it into our game quickly. Switching platforms from TypeScript to Python was a challenge that we thought we would struggle with a lot, but with the help of an LLM-based assistant, it became a lot easier to convert between the two languages. Although we did have a couple issues, they were solved relatively quickly.
