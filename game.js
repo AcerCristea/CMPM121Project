@@ -577,7 +577,7 @@ function draw() {
 // Saving/Loading with localStorage
 function saveGame() {
   // Prompt the user to enter a name for the save
-  const saveName = prompt(t("Enter a name for your save:"));
+  const saveName = prompt(t("enter_save_name"));
   
   // If the user cancels the prompt or enters an empty name, exit the function
   if (!saveName) return;

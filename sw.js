@@ -6,7 +6,12 @@ const FILES_TO_CACHE = [
   '/manifest.json',
   '/scenarios/easy_start.json',
   '/scenarios/drought_challenge.json',
-  '/scenarios/survival_challenge.json'
+  '/scenarios/survival_challenge.json',
+  '/locales/en.json',
+  '/locales/es.json',
+  '/locales/zh.json',
+  '/locales/ar.json',
+  '/icons/plant.png'
   // add any CSS or icon files you use
 ];
 
