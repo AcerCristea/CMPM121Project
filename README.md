@@ -194,3 +194,24 @@ We transitioned our project from TypeScript to Python. We decided to stray away 
 
 ## Reflection
 It was a cool way to learn how external and internal DSLs worked, and see how it gave us an advantage for when we would have to switch to a different language or platform. We had some struggles initially, but after researching more about what DSLs actually were, it became easier to understand and we were able to implement it into our game quickly. Switching platforms from TypeScript to Python was a challenge that we thought we would struggle with a lot, but with the help of an LLM-based assistant, it became a lot easier to convert between the two languages. Although we did have a couple issues, they were solved relatively quickly.
+
+# Devlog Entry - 12/8/24
+
+### F0+F1+F2
+These are the same as last devlog, so nothing has changed and the requirements remain satisfied.
+
+### Internationalization
+We implemented a system to distinguish between internal and player-facing strings by storing all translatable messages in a separate localization file. This ensures that changes for new languages or messages can be made in one place which makes it much easier for us to find in case we ever need to go back. We used constants and enums for string keys so we didn’t have to change the main code as much, and the compiler could also catch untranslated or missing messages during the build process, reducing errors. To support additional languages, we would need to update the localization files by adding new key value pairs for each message in that specific language.
+
+### Localization
+Besides English, our game supports Arabic, Spanish, and Chinese. We used Google Translate for the initial localization for Spanish and ChatGPT for the localization files and how to set up a localization system for our game. We quickly realized that we could also use ChatGPT to translate all of the texts for us, so we asked it to translate our English version of the texts to Arabic, and Chinese. We used Google Translate to double check everything. The way to change languages is to select the language you want to play in with the dropdown button that says “Select Language”.
+
+### Mobile Installation
+
+
+### Mobile Play (Offline)
+
+
+## Reflection
+Our approach to meeting the F3 requirements led to rethinking our feedback mechanisms. The localization process was simple. We integrated a more interactive feedback loop for language selection and touch interactions. The mobile app development process was really confusing and took a long time to get working. Admittedly, we used a lot of ChatGPT for help on it, but we got it working for at least one of our mobile devices in the end.
+
