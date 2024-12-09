@@ -1,22 +1,101 @@
+/* General Styles */
 body {
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: sans-serif;
+  padding: 20px;
+  background-color: #e0f7fa;
 }
 
-#gameCanvas {
-  border: 1px solid #000;
-  background-color: #f0f0f0;
+h1 {
+  margin-bottom: 20px;
+  color: #00796b;
 }
 
-#controls, #scenarioSelection {
+#scenarioSelection, #languageSelection {
+  margin-bottom: 20px;
+}
+
+#scenarioSelection label, #languageSelection label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+#controls, #scenarioSelection, #languageSelection {
   margin: 10px;
 }
 
-#controls button, #scenarioSelection button, #scenarioSelection select {
+#controls button, #scenarioSelection button, #languageSelection button, 
+#scenarioSelection select, #languageSelection select {
   margin-right: 10px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #00796b;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+#controls button:hover, #scenarioSelection button:hover, 
+#languageSelection button:hover, #languageSelection select:hover {
+  background-color: #004d40;
+}
+
+.grid {
+  font-family: monospace;
+  white-space: pre;
+  background: #f9f9f9;
+  padding: 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: auto;
+  max-width: 100%; /* Ensure the grid doesn't exceed the container's width */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .grid {
+    font-size: 12px; /* Reduce font size for tablets and smaller devices */
+    padding: 8px;
+  }
+
+  #controls button, #scenarioSelection button, #languageSelection button, 
+  #scenarioSelection select, #languageSelection select {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  body {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    font-size: 10px; /* Further reduce font size for mobile phones */
+    padding: 6px;
+  }
+
+  #controls button, #scenarioSelection button, #languageSelection button, 
+  #scenarioSelection select, #languageSelection select {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  body {
+    padding: 5px;
+  }
 }
