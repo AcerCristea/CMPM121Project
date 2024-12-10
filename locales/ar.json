@@ -67,5 +67,14 @@
   "Move player: ↑, ↓, ←, →": "تحريك اللاعب: ↑, ↓, ←, →",
   "Sow and Reap seeds in any direction.": "زرع وحصاد البذور في أي اتجاه.",
   "Plants will only grow in proper conditions": "النباتات ستنمو فقط في الظروف المناسبة.",
-  "Toggle Debug Mode: see values inside each cell for easier interpretation.": "تبديل وضع التصحيح: رؤية القيم داخل كل خلية لفهم أسهل."
+  "Toggle Debug Mode: see values inside each cell for easier interpretation.": "تبديل وضع التصحيح: رؤية القيم داخل كل خلية لفهم أسهل.",
+  "No plant here to reap.": "لا توجد نباتات هنا للحصاد.",
+  "Invalid direction.": "اتجاه غير صالح.",
+  "Cannot perform action outside the grid.": "لا يمكن تنفيذ الإجراء خارج الشبكة.",
+  "There's already a plant here.": "هناك نبات بالفعل هنا.",
+  "Sowed a seed.": "زرعت بذرة.",
+  "Reaped a plant.": "حصدت نباتًا.",
+  "You already achieved victory!": "لقد حققت النصر بالفعل!",
+  "Can't quit in browser!": "لا يمكن الخروج من المتصفح!",
+  "Unknown command.": "أمر غير معروف."
 }

@@ -67,6 +67,14 @@
   "Move player: ↑, ↓, ←, →": "Mover jugador: ↑, ↓, ←, →",
   "Sow and Reap seeds in any direction.": "Siembra y cosecha semillas en cualquier dirección.",
   "Plants will only grow in proper conditions": "Las plantas solo crecerán en condiciones adecuadas.",
-  "Toggle Debug Mode: see values inside each cell for easier interpretation.": "Activar el Modo de Depuración: ver valores dentro de cada celda para una interpretación más fácil."
+  "Toggle Debug Mode: see values inside each cell for easier interpretation.": "Activar el Modo de Depuración: ver valores dentro de cada celda para una interpretación más fácil.",
+  "There's already a plant here.": "Ya hay una planta aquí.",
+  "Sowed a seed.": "Sembraste una semilla.",
+  "Reaped a plant.": "Cosechaste una planta.",
+  "Cannot perform action outside the grid.": "No se puede realizar la acción fuera de la cuadrícula.",
+  "You already achieved victory!": "¡Ya lograste la victoria!",
+  "Can't quit in browser!": "¡No se puede salir en el navegador!",
+  "No plant here to reap.": "No hay planta aquí para cosechar.",
+  "Unknown command.": "Comando desconocido."
 
 }

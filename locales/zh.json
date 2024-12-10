@@ -67,7 +67,16 @@
   "Move player: ↑, ↓, ←, →": "移动玩家：↑, ↓, ←, →",
   "Sow and Reap seeds in any direction.": "在任何方向播种和收获种子。",
   "Plants will only grow in proper conditions": "植物只能在适当的条件下生长。",
-  "Toggle Debug Mode: see values inside each cell for easier interpretation.": "切换调试模式：查看每个单元格内的值，以便更容易理解。"
+  "Toggle Debug Mode: see values inside each cell for easier interpretation.": "切换调试模式：查看每个单元格内的值，以便更容易理解。",
+  "No plant here to reap.": "这里没有植物可以收割。",
+  "Invalid direction.": "方向无效。",
+  "Cannot perform action outside the grid.": "无法在网格外执行操作。",
+  "There's already a plant here.": "这里已经有植物了。",
+  "Sowed a seed.": "播种了一颗种子。",
+  "Reaped a plant.": "收割了一株植物。",
+  "You already achieved victory!": "你已经取得胜利了！",
+  "Can't quit in browser!": "无法在浏览器中退出！",
+  "Unknown command.": "未知的命令。"
 
 
 }

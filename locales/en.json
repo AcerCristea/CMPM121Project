@@ -66,6 +66,15 @@
   "Move player: ↑, ↓, ←, →": "Move player: ↑, ↓, ←, →",
   "Sow and Reap seeds in any direction.": "Sow and Reap seeds in any direction.",
   "Plants will only grow in proper conditions": "Plants will only grow in proper conditions",
-  "Toggle Debug Mode: see values inside each cell for easier interpretation.": "Toggle Debug Mode: see values inside each cell for easier interpretation."
+  "Toggle Debug Mode: see values inside each cell for easier interpretation.": "Toggle Debug Mode: see values inside each cell for easier interpretation.",
+  "No plant here to reap.": "No plant here to reap.",
+  "Invalid direction.": "Invalid direction.",
+  "Cannot perform action outside the grid.": "Cannot perform action outside the grid.",
+  "There's already a plant here.": "There's already a plant here.",
+  "Sowed a seed.": "Sowed a seed.",
+  "Reaped a plant.": "Reaped a plant.",
+  "You already achieved victory!": "You already achieved victory!",
+  "Can't quit in browser!": "Can't quit in browser!",
+  "Unknown command.": "Unknown command."
   }
 
