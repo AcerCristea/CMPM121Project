@@ -223,6 +223,68 @@ const gameInstructions = document.getElementById(
   "gameInstructions"
 ) as HTMLParagraphElement;
 
+gameInstructions.innerHTML = `
+  <h2>Instructions</h2>
+
+  <strong>Game Modes:</strong>
+  <ul>
+    <li><strong>Easy Start:</strong> A gentle introduction with stable conditions. Perfect for beginners. Victory requires reaping 3 fully grown plants.</li>
+    <li><strong>Drought Challenge:</strong> A harsher environment focused on water scarcity. A drought event makes moisture harder to maintain. You must reap 5 fully grown plants to win.</li>
+    <li><strong>Survival Challenge:</strong> A dynamic environment with multiple events and balanced but changeable conditions. Unlocks new plants mid-game and requires adaptability. Victory requires reaping 5 fully grown plants.</li>
+  </ul>
+
+  <strong>Crop Types:</strong>
+  <ul>
+    <li><span style="color: blue;">Blue</span>: Rice</li>
+    <li><span style="color: Orange;">Orange</span>: Wheat</li>
+    <li><span style="color: green;">Green</span>: Corn</li>
+  </ul>
+  
+  <strong>Soil Conditions:</strong>
+  <ul>
+    <li><span style="color: yellow;">Yellow</span>: High sun level</li>
+    <li><span style="color: blue;">Blue</span>: High water level</li>
+    <li>Shades of Green: Various mixes of sun and water.<br>Lighter green often means moderate sun and moisture.</li>
+  </ul>
+
+  <strong>Plant Growth Requirements:</strong>
+  <ul>
+    <li><strong>Wheat (Yellow):</strong> Needs moderate moisture and at least one neighboring Wheat plant.</li>
+    <li><strong>Corn (Green):</strong> Requires high sun levels, doesn't care about neighbors.</li>
+    <li><strong>Rice (Blue):</strong> Needs moderate moisture and at least two adjacent plants (of any type).</li>
+  </ul>
+
+  <strong>Game Controls:</strong>
+  <p>Move player: <kbd>↑</kbd>, <kbd>↓</kbd>, <kbd>←</kbd>, <kbd>→</kbd></p>
+  <p>Sow a seed: Press <kbd>S</kbd> and choose a direction with arrow keys.</p>
+  <p>Reap a plant: Press <kbd>R</kbd> and choose a direction with arrow keys.</p>
+  <p><strong>Toggle Debug Mode:</strong> Press <kbd>D</kbd> to show numeric sun/moisture values inside each cell for easier interpretation.</p>
+`;
+
+gameInstructions.style.padding = "15px";
+gameInstructions.style.border = "2px solid #ccc";
+gameInstructions.style.borderRadius = "8px";
+gameInstructions.style.backgroundColor = "#f9f9f9";
+gameInstructions.style.color = "#333";
+gameInstructions.style.fontFamily = "Arial, sans-serif";
+gameInstructions.style.maxWidth = "600px";
+gameInstructions.style.margin = "20px auto";
+gameInstructions.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.1)";
+
+canvas.style.minWidth = "800px";
+canvas.style.maxHeight = "600px";
+canvas.style.marginTop = "10px";
+canvas.style.marginBottom = "20px";
+
+controls.style.display = "flex";
+controls.style.flexDirection = "row";
+canvasBox.style.display = "flex";
+canvasBox.style.flexDirection = "column";
+bigBox.style.display = "flex";
+bigBox.style.flexDirection = "row";
+bigBox.style.margin = "10px";
+
+scenarioSelection.style.margin = "10px";
 class Game {
   gameState: Uint8Array;
   actionMode: "none" | "sow" | "reap";
