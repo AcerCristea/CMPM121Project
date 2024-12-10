@@ -11,8 +11,9 @@ const FILES_TO_CACHE = [
   '/locales/es.json',
   '/locales/zh.json',
   '/locales/ar.json',
-  '/icons/plant.png'
+  '/icons/plant.png',
   // add any CSS or icon files you use
+  '/style.css'
 ];
 
 // Install event: cache everything
