@@ -11,6 +11,22 @@
 <body>
 
   <h1>Reap n' Sow</h1>
+  <div id="languageSelection">
+    <label id="langSelection" for="languageSelect">Select Language:</label>
+    <select id="languageSelect">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="zh">中文</option>
+      <option value="ar">العربية</option>
+    </select>
+  </div>
+
+  <p id="gameModes" class="buttonBox">
+    <strong>Game Modes:</strong><br>
+    - Easy Start: Stable environment, reap 3 plants = Victory.<br>
+    - Drought Challenge: Includes drought events, reap 5 plants.<br>
+    - Survival Challenge: Multiple events, reap 5 plants.
+  </p>
 
   <div id="scenarioSelection">
     <label for="scenarioSelect">Select Scenario:</label>
@@ -22,59 +38,33 @@
     <button id="startGameButton">Start Game</button>
   </div>
 
-  <p id="gameModes">
-    <strong>Game Modes:</strong><br>
-    - Easy Start: Stable environment, reap 3 plants = Victory.<br>
-    - Drought Challenge: Includes drought events, reap 5 plants.<br>
-    - Survival Challenge: Multiple events, reap 5 plants.
-  </p>
-
-  <p id="controlsText">
-    <strong>Controls:</strong><br>
-    - Movement: w=up, s=down, a=left, d=right<br>
-    - Sow: "sow up/down/left/right"<br>
-    - Reap: "reap up/down/left/right"<br>
-    - Next Turn: 'n'<br>
-    - Undo: 'undo'<br>
-    - Redo: 'redo'<br>
-    - Debug: 'debug'<br>
-    - Save: 'save'<br>
-    - Load: 'load'<br>
-    - Quit: 'q' (no effect in browser)
-  </p>
-
-  <div id="controls">
-    <button id="btnUp" onclick="handleCommand('w')">W</button>
-    <button id="btnDown" onclick="handleCommand('s')">S</button>
-    <button id="btnLeft" onclick="handleCommand('a')">A</button>
-    <button id="btnRight" onclick="handleCommand('d')">D</button>
-
-    <button id="btnSowUp" onclick="handleCommand('sow up')">Sow Up</button>
-    <button id="btnSowDown" onclick="handleCommand('sow down')">Sow Down</button>
-    <button id="btnSowLeft" onclick="handleCommand('sow left')">Sow Left</button>
-    <button id="btnSowRight" onclick="handleCommand('sow right')">Sow Right</button>
-
-    <button id="btnReapUp" onclick="handleCommand('reap up')">Reap Up</button>
-    <button id="btnReapDown" onclick="handleCommand('reap down')">Reap Down</button>
-    <button id="btnReapLeft" onclick="handleCommand('reap left')">Reap Left</button>
-    <button id="btnReapRight" onclick="handleCommand('reap right')">Reap Right</button>
-
-    <button id="btnNextTurn" onclick="handleCommand('n')">Next Turn</button>
-    <button id="btnUndo" onclick="handleCommand('undo')">Undo</button>
-    <button id="btnRedo" onclick="handleCommand('redo')">Redo</button>
-    <button id="btnDebug" onclick="handleCommand('debug')">Debug</button>
-    <button id="btnSave" onclick="handleCommand('save')">Save</button>
-    <button id="btnLoad" onclick="handleCommand('load')">Load</button>
-  </div>
-
-  <div id="languageSelection">
-    <label id="langSelection" for="languageSelect">Select Language:</label>
-    <select id="languageSelect">
-      <option value="en">English</option>
-      <option value="es">Español</option>
-      <option value="zh">中文</option>
-      <option value="ar">العربية</option>
-    </select>
+  <div id="controls" class="buttonBox">
+    <div class="control-group">
+      <button id="btnUp" onclick="handleCommand('w')">Up</button>
+      <button id="btnDown" onclick="handleCommand('s')">Down</button>
+      <button id="btnLeft" onclick="handleCommand('a')">Left</button>
+      <button id="btnRight" onclick="handleCommand('d')">Right</button>
+    </div>
+    <div class="control-group">
+      <button id="btnSowUp" onclick="handleCommand('sow up')">Sow Up</button>
+      <button id="btnSowDown" onclick="handleCommand('sow down')">Sow Down</button>
+      <button id="btnSowLeft" onclick="handleCommand('sow left')">Sow Left</button>
+      <button id="btnSowRight" onclick="handleCommand('sow right')">Sow Right</button>
+    </div>
+    <div class="control-group">
+      <button id="btnReapUp" onclick="handleCommand('reap up')">Reap Up</button>
+      <button id="btnReapDown" onclick="handleCommand('reap down')">Reap Down</button>
+      <button id="btnReapLeft" onclick="handleCommand('reap left')">Reap Left</button>
+      <button id="btnReapRight" onclick="handleCommand('reap right')">Reap Right</button>
+    </div>
+    <div class="control-group">
+      <button id="btnNextTurn" onclick="handleCommand('n')">Next Turn</button>
+      <button id="btnUndo" onclick="handleCommand('undo')">Undo</button>
+      <button id="btnRedo" onclick="handleCommand('redo')">Redo</button>
+      <button id="btnDebug" onclick="handleCommand('debug')">Debug</button>
+      <button id="btnSave" onclick="handleCommand('save')">Save</button>
+      <button id="btnLoad" onclick="handleCommand('load')">Load</button>
+    </div>
   </div>
 
   <div id="info"></div>
