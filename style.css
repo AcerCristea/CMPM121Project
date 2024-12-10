@@ -102,6 +102,110 @@ button:active, select:active {
     align-items: center;
   }
 }
+/* Styling for the buttonBox class */
+.buttonBox {
+  background-color: #f4f4f4; /* Light background for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: #388e3c;
+  border-width: 2px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+/* Header styles */
+.buttonBox h2 {
+  text-align: center;
+  font-size: 1.8em;
+  color: #2a2a2a;
+  margin-bottom: 20px;
+}
+
+/* Styling for the list items */
+.buttonBox ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.buttonBox li {
+  margin-bottom: 10px;
+}
+
+/* Adding color to specific span tags */
+.buttonBox span {
+  font-weight: bold;
+}
+
+/* Special colors for crop types and conditions */
+.buttonBox span[style*="color: blue;"] {
+  color: #1e90ff; /* Blue for Rice, Water */
+}
+
+.buttonBox span[style*="color: orange;"] {
+  color: #ff8c00; /* Orange for Wheat */
+}
+
+.buttonBox span[style*="color: green;"] {
+  color: #32cd32; /* Green for Corn */
+}
+
+.buttonBox span[style*="color: yellow;"] {
+  color: #ffeb3b; /* Yellow for High Sun Level */
+}
+
+/* Styling for kbd elements (keyboard controls) */
+.buttonBox kbd {
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: monospace;
+  color: #333;
+  margin: 0 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Adding extra space for sections */
+.buttonBox p {
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+/* Bold text for instructions */
+.buttonBox strong {
+  font-weight: bold;
+  color: #2a2a2a;
+}
+
+/* Ensuring consistency for game modes list */
+.buttonBox li strong {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Responsive design: Ensure good layout on smaller screens */
+@media (max-width: 600px) {
+  .buttonBox {
+    padding: 15px;
+    font-size: 0.9em;
+  }
+
+  .buttonBox h2 {
+    font-size: 1.5em;
+  }
+
+  .buttonBox ul {
+    padding-left: 15px;
+  }
+
+  .buttonBox li {
+    margin-bottom: 8px;
+  }
+}
+
 
 @media (max-width: 480px) {
   h1 {

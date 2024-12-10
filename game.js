@@ -174,11 +174,40 @@ function applyTranslations() {
   
   document.getElementById("scenarioSelect").setAttribute("aria-label", t("Select Scenario"));
   document.getElementById("startGameButton").textContent = t("Start Game");
-  document.getElementById("gameModes").innerHTML = `
-    <strong>${t("Game Modes")}:</strong><br>
-    - ${t("Easy Start")}: ${t("Stable environment, reap 3 plants = Victory.")}<br>
-    - ${t("Drought Challenge")}: ${t("Includes drought events, reap 5 plants.")}<br>
-    - ${t("Survival Challenge")}: ${t("Multiple events, reap 5 plants.")}`;
+// Assuming 't' is the translation function and it's correctly linked to the JSON files
+
+document.getElementById("gameModes").innerHTML = `
+  <h2>${t("Instructions")}</h2> 
+  <div>
+  <p><strong>${t("Game Modes")}:</strong></p>
+  <ul>
+    <li><strong>${t("Easy Start")}: </strong>${t("Stable environment, reap 3 plants = Victory.")}</li>
+    <li><strong>${t("Drought Challenge")}: </strong>${t("Includes drought events, reap 5 plants.")}</li>
+    <li><strong>${t("Survival Challenge")}: </strong>${t("Multiple events, reap 5 plants.")}</li>
+  </ul>
+
+  <p><strong>${t("Crop Types")}: </strong>${t("Rice")}, ${t("Wheat")}, ${t("Corn")}</p>
+  <p><strong>${t("Soil Conditions")}: </strong>${t("High sun level")}, ${t("High water level")}</p>
+
+  <p><strong>${t("Plant Growth Requirements")}:</strong></p>
+  <ul>
+    <li>${t("Wheat needs moderate moisture.")}</li>
+    <li>${t("Corn requires high sun levels.")}</li>
+    <li>${t("Rice needs moderate moisture.")}</li>
+  </ul>
+
+  <p><strong>${t("Game Controls")}:</strong></p>
+  <ul>
+    <li>${t("Move player: ↑, ↓, ←, →")}</li>
+    <li>${t("Sow and Reap seeds in any direction.")}</li>
+    <li>${t("Plants will only grow in proper conditions")}</li>
+    <li>${t("A plant can only be reaped if it is fully grown.")}</li>
+    <li>${t("Toggle Debug Mode: see values inside each cell for easier interpretation.")}</li>
+  </ul>
+  </div>
+`;
+
+
   document.getElementById("controlsText").innerHTML = `
     <strong>${t("Controls")}:</strong><br>
     - ${t("Movement")}: ${t("w=up, s=down, a=left, d=right")}<br>
@@ -198,6 +227,8 @@ function applyTranslations() {
     scenarioSelect.querySelector("option[value='easy_start']").textContent = t("easy_start");
     scenarioSelect.querySelector("option[value='drought_challenge']").textContent = t("drought_challenge");
     scenarioSelect.querySelector("option[value='survival_challenge']").textContent = t("survival_challenge");
+
+   
 }
 
 // ---------- UI Elements ----------

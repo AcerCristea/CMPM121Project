@@ -49,6 +49,26 @@
   "save_not_found": "未找到保存：",
   "game_loaded": "游戏已从保存加载：",
   "failed_to_load_scenario": "加载场景失败。",
-  "game_ended": "游戏结束。请重新开始或加载另一个游戏。"
+  "game_ended": "游戏结束。请重新开始或加载另一个游戏。",
+  "Crop Types": "作物类型",
+  "Rice": "水稻",
+  "Wheat": "小麦",
+  "Corn": "玉米",
+  "Soil Conditions": "土壤条件",
+  "High sun level": "高阳光水平",
+  "High water level": "高水位",
+  "Shades of Green": "绿色的阴影",
+  "Plant Growth Requirements": "植物生长要求",
+  "Wheat needs moderate moisture.": "小麦需要适度的湿气。",
+  "Corn requires high sun levels.": "玉米需要高阳光水平。",
+  "Rice needs moderate moisture.": "水稻需要适度的湿气。",
+  "Game Controls": "游戏控制",
+  "Instructions": "说明",
+  "Move player: ↑, ↓, ←, →": "移动玩家：↑, ↓, ←, →",
+  "Sow and Reap seeds in any direction.": "在任何方向播种和收获种子。",
+  "Plants will only grow in proper conditions": "植物只能在适当的条件下生长。",
+  "A plant can only be reaped if it is fully grown.": "植物只有在完全生长后才能收获。",
+  "Toggle Debug Mode: see values inside each cell for easier interpretation.": "切换调试模式：查看每个单元格内的值，以便更容易理解。"
+
 
 }

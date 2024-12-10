@@ -49,6 +49,25 @@
   "save_not_found": "Guardado no encontrado: ",
   "game_loaded": "Juego cargado desde el guardado: ",
   "failed_to_load_scenario": "Error al cargar el escenario.",
-  "game_ended": "Juego terminado. Reinicie o cargue otro juego."
+  "game_ended": "Juego terminado. Reinicie o cargue otro juego.",
+  "Crop Types": "Tipos de cultivos",
+  "Rice": "Arroz",
+  "Wheat": "Trigo",
+  "Corn": "Maíz",
+  "Soil Conditions": "Condiciones del suelo",
+  "High sun level": "Alto nivel de sol",
+  "High water level": "Alto nivel de agua",
+  "Shades of Green": "Tonos de verde",
+  "Plant Growth Requirements": "Requisitos de crecimiento de plantas",
+  "Wheat needs moderate moisture.": "El trigo necesita humedad moderada.",
+  "Corn requires high sun levels.": "El maíz requiere niveles altos de sol.",
+  "Rice needs moderate moisture.": "El arroz necesita humedad moderada.",
+  "Game Controls": "Controles del juego",
+  "Instructions": "Instrucciones",
+  "Move player: ↑, ↓, ←, →": "Mover jugador: ↑, ↓, ←, →",
+  "Sow and Reap seeds in any direction.": "Siembra y cosecha semillas en cualquier dirección.",
+  "Plants will only grow in proper conditions": "Las plantas solo crecerán en condiciones adecuadas.",
+  "A plant can only be reaped if it is fully grown.": "Una planta solo se puede cosechar si está completamente madura.",
+  "Toggle Debug Mode: see values inside each cell for easier interpretation.": "Activar el Modo de Depuración: ver valores dentro de cada celda para una interpretación más fácil."
 
 }

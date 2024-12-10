@@ -49,5 +49,24 @@
   "save_not_found": "Save not found: ",
   "game_loaded": "Game loaded from save: ",
   "failed_to_load_scenario": "Failed to load scenario.",
-  "game_ended": "Game ended. Please restart or load another game."
-}
+  "game_ended": "Game ended. Please restart or load another game.",
+  "Instructions": "Instructions",
+  "Crop Types": "Crop Types",
+  "Rice": "Rice",
+  "Wheat": "Wheat",
+  "Corn": "Corn",
+  "Soil Conditions": "Soil Conditions",
+  "High sun level": "High sun level",
+  "High water level": "High water level",
+  "Plant Growth Requirements": "Plant Growth Requirements",
+  "Wheat needs moderate moisture.": "Wheat needs moderate moisture.",
+  "Corn requires high sun levels.": "Corn requires high sun levels.",
+  "Rice needs moderate moisture.": "Rice needs moderate moisture.",
+  "Game Controls": "Game Controls",
+  "Move player: ↑, ↓, ←, →": "Move player: ↑, ↓, ←, →",
+  "Sow and Reap seeds in any direction.": "Sow and Reap seeds in any direction.",
+  "Plants will only grow in proper conditions": "Plants will only grow in proper conditions",
+  "A plant can only be reaped if it is fully grown.": "A plant can only be reaped if it is fully grown.",
+  "Toggle Debug Mode: see values inside each cell for easier interpretation.": "Toggle Debug Mode: see values inside each cell for easier interpretation."
+  }
+
