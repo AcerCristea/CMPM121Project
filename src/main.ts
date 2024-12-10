@@ -8,7 +8,7 @@ interface GrowthContext {
   moisture: number;
   getNeighbors: () => PlantType[];
   turn: number;
-  isWeatherEventActive: (eventName: string) => boolean;  // Add this line
+  isWeatherEventActive: (eventName: string) => boolean; // Add this line
 }
 
 type GrowthCondition = (ctx: GrowthContext) => boolean;
@@ -28,50 +28,56 @@ class PlantDefinitionBuilder {
     this.definition = {
       name,
       type,
-      growthConditions: []
+      growthConditions: [],
     };
   }
 
   requireSunAbove(threshold: number): PlantDefinitionBuilder {
-    this.definition.growthConditions.push(ctx => ctx.sun > threshold);
+    this.definition.growthConditions.push((ctx) => ctx.sun > threshold);
     return this;
   }
 
   requireMoistureAbove(threshold: number): PlantDefinitionBuilder {
-    this.definition.growthConditions.push(ctx => ctx.moisture > threshold);
+    this.definition.growthConditions.push((ctx) => ctx.moisture > threshold);
     return this;
   }
 
   requireMoistureBetween(min: number, max: number): PlantDefinitionBuilder {
-    this.definition.growthConditions.push(ctx => ctx.moisture >= min && ctx.moisture <= max);
+    this.definition.growthConditions.push(
+      (ctx) => ctx.moisture >= min && ctx.moisture <= max
+    );
     return this;
   }
 
   requireAdjacentSameType(count: number): PlantDefinitionBuilder {
-    this.definition.growthConditions.push(ctx => {
+    this.definition.growthConditions.push((ctx) => {
       const neighbors = ctx.getNeighbors();
-      const sameTypeCount = neighbors.filter(n => n === this.definition.type).length;
+      const sameTypeCount = neighbors.filter(
+        (n) => n === this.definition.type
+      ).length;
       return sameTypeCount >= count;
     });
     return this;
   }
 
   requireAdjacentAnyType(count: number): PlantDefinitionBuilder {
-    this.definition.growthConditions.push(ctx => {
+    this.definition.growthConditions.push((ctx) => {
       const neighbors = ctx.getNeighbors();
-      return neighbors.filter(n => n !== PlantType.None).length >= count;
+      return neighbors.filter((n) => n !== PlantType.None).length >= count;
     });
     return this;
   }
 
   requireTurnGreaterThan(turnNumber: number): PlantDefinitionBuilder {
-    this.definition.growthConditions.push(ctx => ctx.turn > turnNumber);
+    this.definition.growthConditions.push((ctx) => ctx.turn > turnNumber);
     return this;
   }
 
   // Add more condition methods as needed, for example checking for weather events:
   requireWeatherEventActive(eventName: string): PlantDefinitionBuilder {
-    this.definition.growthConditions.push(ctx => ctx.isWeatherEventActive(eventName));
+    this.definition.growthConditions.push((ctx) =>
+      ctx.isWeatherEventActive(eventName)
+    );
     return this;
   }
 
@@ -190,23 +196,32 @@ PlantRegistry.register(
     .done()
 );
 
-
 // DOM Elements
-const canvas = document.getElementById('gameCanvas') as HTMLCanvasElement;
-const ctx = canvas.getContext('2d')!;
-const canvasBox = document.getElementById('canvasBox') as HTMLDivElement;
-const controls = document.getElementById('controls') as HTMLDivElement;
-const bigBox = document.getElementById('bigBox') as HTMLDivElement;
-const scenarioSelection = document.getElementById('scenarioSelection') as HTMLDivElement;
+const canvas = document.getElementById("gameCanvas") as HTMLCanvasElement;
+const ctx = canvas.getContext("2d")!;
+const canvasBox = document.getElementById("canvasBox") as HTMLDivElement;
+const controls = document.getElementById("controls") as HTMLDivElement;
+const bigBox = document.getElementById("bigBox") as HTMLDivElement;
+const scenarioSelection = document.getElementById(
+  "scenarioSelection"
+) as HTMLDivElement;
 
-const nextTurnButton = document.getElementById('nextTurnButton') as HTMLButtonElement;
-const saveButton = document.getElementById('saveButton') as HTMLButtonElement;
-const loadButton = document.getElementById('loadButton') as HTMLButtonElement;
-const undoButton = document.getElementById('undoButton') as HTMLButtonElement;
-const redoButton = document.getElementById('redoButton') as HTMLButtonElement;
-const scenarioSelect = document.getElementById('scenarioSelect') as HTMLSelectElement;
-const startGameButton = document.getElementById('startGameButton') as HTMLButtonElement;
-const gameInstructions = document.getElementById('gameInstructions') as HTMLParagraphElement;
+const nextTurnButton = document.getElementById(
+  "nextTurnButton"
+) as HTMLButtonElement;
+const saveButton = document.getElementById("saveButton") as HTMLButtonElement;
+const loadButton = document.getElementById("loadButton") as HTMLButtonElement;
+const undoButton = document.getElementById("undoButton") as HTMLButtonElement;
+const redoButton = document.getElementById("redoButton") as HTMLButtonElement;
+const scenarioSelect = document.getElementById(
+  "scenarioSelect"
+) as HTMLSelectElement;
+const startGameButton = document.getElementById(
+  "startGameButton"
+) as HTMLButtonElement;
+const gameInstructions = document.getElementById(
+  "gameInstructions"
+) as HTMLParagraphElement;
 
 gameInstructions.innerHTML = `
   <h2>Instructions</h2>
@@ -246,54 +261,52 @@ gameInstructions.innerHTML = `
   <p><strong>Toggle Debug Mode:</strong> Press <kbd>D</kbd> to show numeric sun/moisture values inside each cell for easier interpretation.</p>
 `;
 
+gameInstructions.style.padding = "15px";
+gameInstructions.style.border = "2px solid #ccc";
+gameInstructions.style.borderRadius = "8px";
+gameInstructions.style.backgroundColor = "#f9f9f9";
+gameInstructions.style.color = "#333";
+gameInstructions.style.fontFamily = "Arial, sans-serif";
+gameInstructions.style.maxWidth = "600px";
+gameInstructions.style.margin = "20px auto";
+gameInstructions.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.1)";
 
-gameInstructions.style.padding = '15px';
-gameInstructions.style.border = '2px solid #ccc';
-gameInstructions.style.borderRadius = '8px';
-gameInstructions.style.backgroundColor = '#f9f9f9';
-gameInstructions.style.color = '#333';
-gameInstructions.style.fontFamily = 'Arial, sans-serif';
-gameInstructions.style.maxWidth = '600px';
-gameInstructions.style.margin = '20px auto';
-gameInstructions.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
+canvas.style.minWidth = "800px";
+canvas.style.maxHeight = "600px";
+canvas.style.marginTop = "10px";
+canvas.style.marginBottom = "20px";
 
-canvas.style.minWidth = "800px"
-canvas.style.maxHeight = "600px"
-canvas.style.marginTop = "10px"
-canvas.style.marginBottom = "20px"
+controls.style.display = "flex";
+controls.style.flexDirection = "row";
+canvasBox.style.display = "flex";
+canvasBox.style.flexDirection = "column";
+bigBox.style.display = "flex";
+bigBox.style.flexDirection = "row";
+bigBox.style.margin = "10px";
 
-controls.style.display = "flex"
-controls.style.flexDirection = "row"
-canvasBox.style.display = "flex"
-canvasBox.style.flexDirection = "column"
-bigBox.style.display = "flex"
-bigBox.style.flexDirection = "row"
-bigBox.style.margin = "10px"
-
-scenarioSelection.style.margin ="10px"
+scenarioSelection.style.margin = "10px";
 class Game {
   gameState: Uint8Array;
-  actionMode: 'none' | 'sow' | 'reap';
+  actionMode: "none" | "sow" | "reap";
   victoryConditionMet: boolean;
   fullyGrownPlantsReaped: number;
   history: Uint8Array[];
   future: Uint8Array[];
   scenario: Scenario;
-  availablePlantTypes: string[] = ['Wheat', 'Corn', 'Rice'];
+  availablePlantTypes: string[] = ["Wheat", "Corn", "Rice"];
   activeWeatherEvents: { [key: string]: number } = {};
   debugMode: boolean = false;
 
-
   private plantGrowthColors: { [key in PlantType]: string[] } = {
-    [PlantType.Wheat]: ['goldenrod', 'darkgoldenrod', 'black'],
-    [PlantType.Corn]: ['yellowgreen', 'green', 'black'],
-    [PlantType.Rice]: ['lightblue', 'blue', 'black'],
-    [PlantType.None]: ['', '', ''],
+    [PlantType.Wheat]: ["goldenrod", "darkgoldenrod", "black"],
+    [PlantType.Corn]: ["yellowgreen", "green", "black"],
+    [PlantType.Rice]: ["lightblue", "blue", "black"],
+    [PlantType.None]: ["", "", ""],
   };
 
   constructor(scenario: Scenario) {
     this.gameState = new Uint8Array(GAME_STATE_SIZE);
-    this.actionMode = 'none';
+    this.actionMode = "none";
     this.victoryConditionMet = false;
     this.fullyGrownPlantsReaped = 0;
     this.history = [];
@@ -302,23 +315,22 @@ class Game {
 
     this.initializeGameState();
 
-    nextTurnButton.addEventListener('click', () => this.nextTurn());
-    saveButton.addEventListener('click', () => this.saveGame());
-    loadButton.addEventListener('click', () => this.loadGame());
-    undoButton.addEventListener('click', () => this.undo());
-    redoButton.addEventListener('click', () => this.redo());
-    window.addEventListener('keydown', (e) => {
+    nextTurnButton.addEventListener("click", () => this.nextTurn());
+    saveButton.addEventListener("click", () => this.saveGame());
+    loadButton.addEventListener("click", () => this.loadGame());
+    undoButton.addEventListener("click", () => this.undo());
+    redoButton.addEventListener("click", () => this.redo());
+    window.addEventListener("keydown", (e) => {
       // Handle debug mode toggle
-      if (e.key === 'D' || e.key === 'd') {
+      if (e.key === "D" || e.key === "d") {
         this.debugMode = !this.debugMode;
         this.draw();
         return; // After toggling debug mode, you may or may not want to return early
       }
-    
+
       // Otherwise, handle normal key input for movement, sowing, etc.
       this.handleKeyDown(e);
     });
-    
 
     this.checkAutoSave();
     this.gameLoop();
@@ -326,7 +338,7 @@ class Game {
 
   initializeGameState() {
     for (let i = 0; i < GRID_DATA_SIZE; i += CELL_DATA_SIZE) {
-      this.gameState[i] = 0;     // sun
+      this.gameState[i] = 0; // sun
       this.gameState[i + 1] = 0; // moisture
       this.gameState[i + 2] = PlantType.None;
       this.gameState[i + 3] = 0;
@@ -338,7 +350,9 @@ class Game {
 
     for (const cellData of sc.grid) {
       const cellIndex = this.getCellIndex(cellData.x, cellData.y);
-      this.gameState[cellIndex + 2] = this.getPlantTypeFromString(cellData.plantType);
+      this.gameState[cellIndex + 2] = this.getPlantTypeFromString(
+        cellData.plantType
+      );
       this.gameState[cellIndex + 3] = cellData.growthLevel;
     }
 
@@ -348,10 +362,14 @@ class Game {
 
   getPlantTypeFromString(type: string): PlantType {
     switch (type.toLowerCase()) {
-      case 'wheat': return PlantType.Wheat;
-      case 'corn': return PlantType.Corn;
-      case 'rice': return PlantType.Rice;
-      default: return PlantType.None;
+      case "wheat":
+        return PlantType.Wheat;
+      case "corn":
+        return PlantType.Corn;
+      case "rice":
+        return PlantType.Rice;
+      default:
+        return PlantType.None;
     }
   }
 
@@ -388,36 +406,52 @@ class Game {
   handleKeyDown(event: KeyboardEvent) {
     if (this.victoryConditionMet) return;
 
-    if (this.actionMode === 'none') {
+    if (this.actionMode === "none") {
       switch (event.key) {
-        case 'ArrowUp': this.movePlayer(Direction.Up); break;
-        case 'ArrowDown': this.movePlayer(Direction.Down); break;
-        case 'ArrowLeft': this.movePlayer(Direction.Left); break;
-        case 'ArrowRight': this.movePlayer(Direction.Right); break;
-        case 's':
-        case 'S':
-          this.actionMode = 'sow';
+        case "ArrowUp":
+          this.movePlayer(Direction.Up);
           break;
-        case 'r':
-        case 'R':
-          this.actionMode = 'reap';
+        case "ArrowDown":
+          this.movePlayer(Direction.Down);
+          break;
+        case "ArrowLeft":
+          this.movePlayer(Direction.Left);
+          break;
+        case "ArrowRight":
+          this.movePlayer(Direction.Right);
+          break;
+        case "s":
+        case "S":
+          this.actionMode = "sow";
+          break;
+        case "r":
+        case "R":
+          this.actionMode = "reap";
           break;
       }
     } else {
       let direction: Direction | null = null;
       switch (event.key) {
-        case 'ArrowUp': direction = Direction.Up; break;
-        case 'ArrowDown': direction = Direction.Down; break;
-        case 'ArrowLeft': direction = Direction.Left; break;
-        case 'ArrowRight': direction = Direction.Right; break;
+        case "ArrowUp":
+          direction = Direction.Up;
+          break;
+        case "ArrowDown":
+          direction = Direction.Down;
+          break;
+        case "ArrowLeft":
+          direction = Direction.Left;
+          break;
+        case "ArrowRight":
+          direction = Direction.Right;
+          break;
         default:
-          this.actionMode = 'none';
+          this.actionMode = "none";
           return;
       }
 
       if (direction !== null) {
         this.performAction(direction);
-        this.actionMode = 'none';
+        this.actionMode = "none";
       }
     }
     this.draw();
@@ -429,10 +463,18 @@ class Game {
     let y = this.getPlayerY();
 
     switch (direction) {
-      case Direction.Up: if (y > 0) y--; break;
-      case Direction.Down: if (y < GRID_HEIGHT - 1) y++; break;
-      case Direction.Left: if (x > 0) x--; break;
-      case Direction.Right: if (x < GRID_WIDTH - 1) x++; break;
+      case Direction.Up:
+        if (y > 0) y--;
+        break;
+      case Direction.Down:
+        if (y < GRID_HEIGHT - 1) y++;
+        break;
+      case Direction.Left:
+        if (x > 0) x--;
+        break;
+      case Direction.Right:
+        if (x < GRID_WIDTH - 1) x++;
+        break;
     }
 
     this.setPlayerPosition(x, y);
@@ -446,17 +488,31 @@ class Game {
     let targetY = y;
 
     switch (direction) {
-      case Direction.Up: targetY = y - 1; break;
-      case Direction.Down: targetY = y + 1; break;
-      case Direction.Left: targetX = x - 1; break;
-      case Direction.Right: targetX = x + 1; break;
+      case Direction.Up:
+        targetY = y - 1;
+        break;
+      case Direction.Down:
+        targetY = y + 1;
+        break;
+      case Direction.Left:
+        targetX = x - 1;
+        break;
+      case Direction.Right:
+        targetX = x + 1;
+        break;
     }
 
-    if (targetX < 0 || targetX >= GRID_WIDTH || targetY < 0 || targetY >= GRID_HEIGHT) return;
+    if (
+      targetX < 0 ||
+      targetX >= GRID_WIDTH ||
+      targetY < 0 ||
+      targetY >= GRID_HEIGHT
+    )
+      return;
 
     const cellIndex = this.getCellIndex(targetX, targetY);
 
-    if (this.actionMode === 'sow') {
+    if (this.actionMode === "sow") {
       const plantType = this.gameState[cellIndex + 2];
       if (plantType === PlantType.None) {
         const newPlantType = this.getRandomPlantType();
@@ -464,7 +520,7 @@ class Game {
         this.gameState[cellIndex + 3] = 1;
         this.pushStateToHistory();
       }
-    } else if (this.actionMode === 'reap') {
+    } else if (this.actionMode === "reap") {
       const plantType = this.gameState[cellIndex + 2];
       const growthLevel = this.gameState[cellIndex + 3];
       if (plantType !== PlantType.None) {
@@ -527,12 +583,12 @@ class Game {
     const sun = this.gameState[cellIndex];
     const moisture = this.gameState[cellIndex + 1];
     const plantType = this.gameState[cellIndex + 2] as PlantType;
-  
+
     // If no plant or definition, no growth
     if (plantType === PlantType.None) return false;
     const definition = PlantRegistry.getDefinition(plantType);
     if (!definition) return false;
-  
+
     const ctx: GrowthContext = {
       sun,
       moisture,
@@ -557,21 +613,21 @@ class Game {
       },
       isWeatherEventActive: (eventName: string) => {
         return (this.activeWeatherEvents[eventName] ?? 0) > 0;
-      }
+      },
     };
-  
+
     // Check all conditions
-    return definition.growthConditions.every(cond => cond(ctx));
+    return definition.growthConditions.every((cond) => cond(ctx));
   }
-  
-  
 
   checkVictoryCondition() {
     const vc = this.scenario.victoryCondition;
-    if (vc.type === 'reap_plants') {
+    if (vc.type === "reap_plants") {
       if (this.fullyGrownPlantsReaped >= vc.target) {
         this.victoryConditionMet = true;
-        alert(`Victory! You have reaped at least ${vc.target} fully grown plants.`);
+        alert(
+          `Victory! You have reaped at least ${vc.target} fully grown plants.`
+        );
       }
     }
   }
@@ -602,7 +658,7 @@ class Game {
   }
 
   handleEvent(event: ScheduledEvent) {
-    if (event.action === 'unlock_plant_type' && event.plantType) {
+    if (event.action === "unlock_plant_type" && event.plantType) {
       this.unlockPlantType(event.plantType);
     }
   }
@@ -615,7 +671,7 @@ class Game {
 
   getCurrentSunChance(): number {
     let sunChance = this.scenario.weatherPolicy.sunChance;
-    if (this.activeWeatherEvents['Drought']) {
+    if (this.activeWeatherEvents["Drought"]) {
       sunChance += 0.2;
     }
     return Math.min(sunChance, 1);
@@ -623,10 +679,10 @@ class Game {
 
   getCurrentRainChance(): number {
     let rainChance = this.scenario.weatherPolicy.rainChance;
-    if (this.activeWeatherEvents['Drought']) {
+    if (this.activeWeatherEvents["Drought"]) {
       rainChance -= 0.3;
     }
-    if (this.activeWeatherEvents['Rainstorm']) {
+    if (this.activeWeatherEvents["Rainstorm"]) {
       rainChance += 0.5;
     }
     return Math.max(0, Math.min(rainChance, 1));
@@ -637,72 +693,89 @@ class Game {
   }
 
   draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  for (let x = 0; x < GRID_WIDTH; x++) {
-    for (let y = 0; y < GRID_HEIGHT; y++) {
-      const cellIndex = this.getCellIndex(x, y);
-      const sun = this.gameState[cellIndex];
-      const moisture = this.gameState[cellIndex + 1];
-      const plantType = this.gameState[cellIndex + 2];
-      const growthLevel = this.gameState[cellIndex + 3];
+    for (let x = 0; x < GRID_WIDTH; x++) {
+      for (let y = 0; y < GRID_HEIGHT; y++) {
+        const cellIndex = this.getCellIndex(x, y);
+        const sun = this.gameState[cellIndex];
+        const moisture = this.gameState[cellIndex + 1];
+        const plantType = this.gameState[cellIndex + 2];
+        const growthLevel = this.gameState[cellIndex + 3];
 
-      ctx.fillStyle = this.getCellColor(sun, moisture);
-      ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        ctx.fillStyle = this.getCellColor(sun, moisture);
+        ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
 
-      ctx.strokeStyle = '#ccc';
-      ctx.strokeRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        ctx.strokeStyle = "#ccc";
+        ctx.strokeRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
 
-      if (plantType !== PlantType.None) {
-        ctx.fillStyle = this.plantGrowthColors[plantType][growthLevel - 1];
-        ctx.fillRect(x * CELL_SIZE + 5, y * CELL_SIZE + 5, CELL_SIZE - 10, CELL_SIZE - 10);
-      }
+        if (plantType !== PlantType.None) {
+          ctx.fillStyle = this.plantGrowthColors[plantType][growthLevel - 1];
+          ctx.fillRect(
+            x * CELL_SIZE + 5,
+            y * CELL_SIZE + 5,
+            CELL_SIZE - 10,
+            CELL_SIZE - 10
+          );
+        }
 
-      // If debug mode is on, show the numeric sun/moisture values
-      if (this.debugMode) {
-        ctx.fillStyle = 'red';
-        ctx.font = '10px Arial';
-        ctx.fillText(`Sun:${sun}`, x * CELL_SIZE + 2, y * CELL_SIZE + 10);
-        ctx.fillText(`Moist:${moisture}`, x * CELL_SIZE + 2, y * CELL_SIZE + 20);
+        // If debug mode is on, show the numeric sun/moisture values
+        if (this.debugMode) {
+          ctx.fillStyle = "red";
+          ctx.font = "10px Arial";
+          ctx.fillText(`Sun:${sun}`, x * CELL_SIZE + 2, y * CELL_SIZE + 10);
+          ctx.fillText(
+            `Moist:${moisture}`,
+            x * CELL_SIZE + 2,
+            y * CELL_SIZE + 20
+          );
+        }
       }
     }
+
+    const playerX = this.getPlayerX();
+    const playerY = this.getPlayerY();
+    ctx.fillStyle = "red";
+    ctx.fillRect(
+      playerX * CELL_SIZE,
+      playerY * CELL_SIZE,
+      CELL_SIZE,
+      CELL_SIZE
+    );
+
+    if (this.actionMode !== "none") {
+      ctx.fillStyle = "rgba(255, 255, 0, 0.5)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "black";
+      ctx.font = "20px Arial";
+      ctx.fillText(`Select direction to ${this.actionMode}`, 10, 30);
+    }
+
+    ctx.fillStyle = "black";
+    ctx.font = "16px Arial";
+    ctx.fillText(
+      `Fully grown plants reaped: ${this.fullyGrownPlantsReaped}`,
+      10,
+      canvas.height - 10
+    );
   }
-
-  const playerX = this.getPlayerX();
-  const playerY = this.getPlayerY();
-  ctx.fillStyle = 'red';
-  ctx.fillRect(playerX * CELL_SIZE, playerY * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-
-  if (this.actionMode !== 'none') {
-    ctx.fillStyle = 'rgba(255, 255, 0, 0.5)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = 'black';
-    ctx.font = '20px Arial';
-    ctx.fillText(`Select direction to ${this.actionMode}`, 10, 30);
-  }
-
-  ctx.fillStyle = 'black';
-  ctx.font = '16px Arial';
-  ctx.fillText(`Fully grown plants reaped: ${this.fullyGrownPlantsReaped}`, 10, canvas.height - 10);
-}
-
 
   getCellColor(sun: number, moisture: number): string {
     const hasSun = sun > 128;
     const hasMoisture = moisture > 128;
 
-    if (hasSun && hasMoisture) return '#aaffaa';
-    if (hasSun && !hasMoisture) return '#ffffaa';
-    if (!hasSun && hasMoisture) return '#aaaaff';
-    return '#dddddd';
+    if (hasSun && hasMoisture) return "#aaffaa";
+    if (hasSun && !hasMoisture) return "#ffffaa";
+    if (!hasSun && hasMoisture) return "#aaaaff";
+    return "#dddddd";
   }
 
   saveGame() {
-    const saveName = prompt('Enter a name for your save:');
+    const saveName = prompt("Enter a name for your save:");
     if (saveName) {
       const saveData = {
         gameState: Array.from(this.gameState),
-        history: this.history.map(state => Array.from(state)),
+        history: this.history.map((state) => Array.from(state)),
         fullyGrownPlantsReaped: this.fullyGrownPlantsReaped,
       };
       localStorage.setItem(`save_${saveName}`, JSON.stringify(saveData));
@@ -711,13 +784,15 @@ class Game {
   }
 
   loadGame() {
-    const saveName = prompt('Enter the name of the save to load:');
+    const saveName = prompt("Enter the name of the save to load:");
     if (saveName) {
       const savedData = localStorage.getItem(`save_${saveName}`);
       if (savedData) {
         const parsedData = JSON.parse(savedData);
         this.gameState = Uint8Array.from(parsedData.gameState);
-        this.history = parsedData.history.map((state: number[]) => Uint8Array.from(state));
+        this.history = parsedData.history.map((state: number[]) =>
+          Uint8Array.from(state)
+        );
         this.fullyGrownPlantsReaped = parsedData.fullyGrownPlantsReaped || 0;
         this.future = [];
         this.victoryConditionMet = false;
@@ -732,20 +807,24 @@ class Game {
   autoSaveGame() {
     const autoSaveData = {
       gameState: Array.from(this.gameState),
-      history: this.history.map(state => Array.from(state)),
+      history: this.history.map((state) => Array.from(state)),
       fullyGrownPlantsReaped: this.fullyGrownPlantsReaped,
     };
-    localStorage.setItem('autosave', JSON.stringify(autoSaveData));
+    localStorage.setItem("autosave", JSON.stringify(autoSaveData));
   }
 
   checkAutoSave() {
-    const autoSaveData = localStorage.getItem('autosave');
+    const autoSaveData = localStorage.getItem("autosave");
     if (autoSaveData) {
-      const continueGame = confirm('An auto-save was found. Do you want to continue where you left off?');
+      const continueGame = confirm(
+        "An auto-save was found. Do you want to continue where you left off?"
+      );
       if (continueGame) {
         const parsedData = JSON.parse(autoSaveData);
         this.gameState = Uint8Array.from(parsedData.gameState);
-        this.history = parsedData.history.map((state: number[]) => Uint8Array.from(state));
+        this.history = parsedData.history.map((state: number[]) =>
+          Uint8Array.from(state)
+        );
         this.fullyGrownPlantsReaped = parsedData.fullyGrownPlantsReaped || 0;
         this.future = [];
         this.victoryConditionMet = false;
@@ -789,7 +868,7 @@ const scenarioMap: { [key: string]: Scenario } = {
 
 let game: Game | null = null;
 
-startGameButton.addEventListener('click', () => {
+startGameButton.addEventListener("click", () => {
   const scenarioKey = scenarioSelect.value;
   const selectedScenario = scenarioMap[scenarioKey];
 
