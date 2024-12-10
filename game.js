@@ -201,32 +201,57 @@ document.getElementById("gameModes").innerHTML = `
     <li>${t("Move player: ↑, ↓, ←, →")}</li>
     <li>${t("Sow and Reap seeds in any direction.")}</li>
     <li>${t("Plants will only grow in proper conditions")}</li>
-    <li>${t("A plant can only be reaped if it is fully grown.")}</li>
     <li>${t("Toggle Debug Mode: see values inside each cell for easier interpretation.")}</li>
   </ul>
   </div>
 `;
 
 
-  document.getElementById("controlsText").innerHTML = `
-    <strong>${t("Controls")}:</strong><br>
-    - ${t("Movement")}: ${t("w=up, s=down, a=left, d=right")}<br>
-    - ${t("Sow")}: "${t("sow up/down/left/right")}"<br>
-    - ${t("Reap")}: "${t("reap up/down/left/right")}"<br>
-    - ${t("Next Turn")}: '${t("n")}'<br>
-    - ${t("Undo")}: '${t("undo")}'<br>
-    - ${t("Redo")}: '${t("redo")}'<br>
-    - ${t("Debug")}: '${t("debug")}'<br>
-    - ${t("Save")}: '${t("save")}'<br>
-    - ${t("Load")}: '${t("load")}'<br>
-    - ${t("Quit")}: '${t("q")} (${t("no effect in browser")})'`;
-    document.querySelector("label[for='scenarioSelect']").textContent = t("select_scenario_label");
-    document.getElementById("startGameButton").textContent = t("start_game_button");
+document.getElementById("btnUp").textContent = t("up");
+document.getElementById("btnDown").textContent = t("down");
+document.getElementById("btnLeft").textContent = t("left");
+document.getElementById("btnRight").textContent = t("right");
 
-    const scenarioSelect = document.getElementById("scenarioSelect");
-    scenarioSelect.querySelector("option[value='easy_start']").textContent = t("easy_start");
-    scenarioSelect.querySelector("option[value='drought_challenge']").textContent = t("drought_challenge");
-    scenarioSelect.querySelector("option[value='survival_challenge']").textContent = t("survival_challenge");
+document.getElementById("btnSowUp").textContent = `${t("sow")} ${t("up")}`;
+document.getElementById("btnSowDown").textContent = `${t("sow")} ${t("down")}`;
+document.getElementById("btnSowLeft").textContent = `${t("sow")} ${t("left")}`;
+document.getElementById("btnSowRight").textContent = `${t("sow")} ${t("right")}`;
+
+document.getElementById("btnReapUp").textContent = `${t("reap")} ${t("up")}`;
+document.getElementById("btnReapDown").textContent = `${t("reap")} ${t("down")}`;
+document.getElementById("btnReapLeft").textContent = `${t("reap")} ${t("left")}`;
+document.getElementById("btnReapRight").textContent = `${t("reap")} ${t("right")}`;
+
+document.getElementById("btnNextTurn").textContent = t("next turn");
+document.getElementById("btnUndo").textContent = t("undo");
+document.getElementById("btnRedo").textContent = t("redo");
+document.getElementById("btnDebug").textContent = t("debug");
+document.getElementById("btnSave").textContent = t("save");
+document.getElementById("btnLoad").textContent = t("load");
+document.getElementById("langSelection").textContent = t("select_language");
+
+// Corrected aria-label translation
+document.getElementById("scenarioSelect").setAttribute("aria-label", t("select_scenario_label"));
+
+// Update the label text
+document.querySelector("label[for='scenarioSelect']").textContent = t("select_scenario_label");
+
+// Update start game button
+document.getElementById("startGameButton").textContent = t("start_game_button");
+
+// Update scenario selection options
+const scenarioSelect = document.getElementById("scenarioSelect");
+scenarioSelect.querySelector("option[value='easy_start']").textContent = t("easy_start");
+scenarioSelect.querySelector("option[value='drought_challenge']").textContent = t("drought_challenge");
+scenarioSelect.querySelector("option[value='survival_challenge']").textContent = t("survival_challenge");
+
+// Debugging logs
+console.log("Translations Applied:");
+console.log("Scenario Select Options:", {
+  easy_start: t("easy_start"),
+  drought_challenge: t("drought_challenge"),
+  survival_challenge: t("survival_challenge")
+});
 
    
 }

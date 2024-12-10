@@ -67,7 +67,6 @@
   "Move player: ↑, ↓, ←, →": "Mover jugador: ↑, ↓, ←, →",
   "Sow and Reap seeds in any direction.": "Siembra y cosecha semillas en cualquier dirección.",
   "Plants will only grow in proper conditions": "Las plantas solo crecerán en condiciones adecuadas.",
-  "A plant can only be reaped if it is fully grown.": "Una planta solo se puede cosechar si está completamente madura.",
   "Toggle Debug Mode: see values inside each cell for easier interpretation.": "Activar el Modo de Depuración: ver valores dentro de cada celda para una interpretación más fácil."
 
 }

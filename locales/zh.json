@@ -67,7 +67,6 @@
   "Move player: ↑, ↓, ←, →": "移动玩家：↑, ↓, ←, →",
   "Sow and Reap seeds in any direction.": "在任何方向播种和收获种子。",
   "Plants will only grow in proper conditions": "植物只能在适当的条件下生长。",
-  "A plant can only be reaped if it is fully grown.": "植物只有在完全生长后才能收获。",
   "Toggle Debug Mode: see values inside each cell for easier interpretation.": "切换调试模式：查看每个单元格内的值，以便更容易理解。"
 
 

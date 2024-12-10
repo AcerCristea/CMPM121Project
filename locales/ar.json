@@ -67,6 +67,5 @@
   "Move player: ↑, ↓, ←, →": "تحريك اللاعب: ↑, ↓, ←, →",
   "Sow and Reap seeds in any direction.": "زرع وحصاد البذور في أي اتجاه.",
   "Plants will only grow in proper conditions": "النباتات ستنمو فقط في الظروف المناسبة.",
-  "A plant can only be reaped if it is fully grown.": "يمكن حصاد النبات فقط إذا كان ناضجًا بالكامل.",
   "Toggle Debug Mode: see values inside each cell for easier interpretation.": "تبديل وضع التصحيح: رؤية القيم داخل كل خلية لفهم أسهل."
 }
